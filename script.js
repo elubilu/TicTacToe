@@ -10,6 +10,11 @@ const WINNING_COMBINATIONS = [
   [0, 4, 8],
   [2, 4, 6]
 ]
+let mainBoard = [
+  ['', '', ''],
+  ['', '', ''],
+  ['', '', '']
+];
 const cellElements = document.querySelectorAll('[data-cell]')
 const board = document.getElementById('board')
 const winningMessageElement = document.getElementById('winningMessage')
@@ -37,6 +42,8 @@ function handleClick(e) {
   const cell = e.target
   const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS
   placeMark(cell, currentClass)
+  // console.log(e)
+  
   if (checkWin(currentClass)) {
     endGame(false)
   } else if (isDraw()) {
